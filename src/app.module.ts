@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { LoggerService } from './logger.service';
 
 const mockAppService = {
     getHello(){
@@ -15,15 +14,6 @@ const mockAppService = {
   providers: [{
       provide: AppService,
       useClass: AppService
-  }, {
-      provide: "LOGGER",
-      useClass: LoggerService
-  },
-{
-    provide: "DEMO-Factory",
-    useFactory: () => {
-        return 'factory'
-    }
-}],
+  }],
 })
 export class AppModule {}
